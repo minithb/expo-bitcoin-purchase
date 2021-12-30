@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
+import NumberFormat from "react-number-format";
 
 export default function Checkout() {
   const [price, setPrice] = useState(50000);
@@ -91,7 +92,16 @@ export default function Checkout() {
         <View style={styles.value}>
           <Text style={styles.totalCoins}>{totalCoins}</Text>
           <Text style={styles.totalValue}>
-            ≈ ₹{Math.floor(totalCoins * price).toLocaleString()}
+            {" "}
+            ≈
+            <NumberFormat
+              displayType="text"
+              thousandSeparator={true}
+              thousandsGroupStyle="lakh"
+              prefix={"  ₹"}
+              value={Math.floor(totalCoins * price)}
+              renderText={(value) => <Text>{value}</Text>}
+            />
           </Text>
         </View>
         <View style={[styles.value, { marginTop: 30 }]}>
@@ -148,7 +158,14 @@ export default function Checkout() {
           BTC/INR
         </Text>
         <Text style={[styles.totalCoins, { textAlign: "center" }]}>
-          ₹{price.toLocaleString()}
+          <NumberFormat
+            displayType="text"
+            thousandSeparator={true}
+            thousandsGroupStyle="lakh"
+            prefix={"₹"}
+            value={price}
+            renderText={(value) => <Text>{value}</Text>}
+          />
         </Text>
         <View style={[styles.value, { marginTop: 30 }]}>
           <Text style={{ marginTop: 5, flex: 1, paddingLeft: 25 }}>
@@ -188,7 +205,14 @@ export default function Checkout() {
               fontSize: 16,
             }}
           >
-            ₹{amount.toLocaleString()}
+            <NumberFormat
+              displayType="text"
+              thousandSeparator={true}
+              thousandsGroupStyle="lakh"
+              prefix={"₹"}
+              value={amount}
+              renderText={(value) => <Text>{value}</Text>}
+            />
           </Text>
         </View>
 
