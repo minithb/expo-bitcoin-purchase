@@ -74,6 +74,7 @@ export default function Checkout() {
       }
       Alert.alert("Payment successfully! Thank you for the purchase.");
       setTotalCoins(totalCoins + parseInt(quantity));
+      setQuantity(1);
     } catch (err) {
       // console.error(err);
       Alert.alert("Payment failed!");
@@ -140,10 +141,10 @@ export default function Checkout() {
           />
         </Text>
         <View style={[styles.value, { marginTop: 30 }]}>
-          <Text style={{ marginTop: 5, flex: 1, paddingLeft: 25 }}>
-            Quantity
+          <Text style={{ marginTop: 5, flex: 2, paddingLeft: 11 }}>
+            Amount (BTC)
           </Text>
-          <Text style={styles.amount}>Amount</Text>
+          <Text style={styles.amount}>Total (INR)</Text>
         </View>
         <View style={[styles.value, { marginTop: 5 }]}>
           <TextInput
