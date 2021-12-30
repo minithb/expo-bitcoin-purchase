@@ -85,7 +85,7 @@ export default function Checkout() {
     <>
       {/* Wallet View */}
       <View style={{ padding: 20, flex: 1 }}>
-        <Text style={[styles.title, { paddingTop: 10 }]}>
+        <Text style={[styles.title, { paddingTop: 20 }]}>
           <Ionicons name="wallet-outline" size={24} color="#333" /> Wallet
         </Text>
         <Text style={{ paddingTop: 30 }}>Equity Value(BTC)</Text>
@@ -264,7 +264,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     fontSize: 24,
     color: "#333",
-    fontWeight: "600",
   },
   totalCoins: {
     fontSize: 28,
