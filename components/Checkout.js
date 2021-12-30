@@ -62,20 +62,20 @@ export default function Checkout() {
         merchantDisplayName: "Bitcoin Buy",
       });
       if (initSheet.error) {
-        console.error(initSheet.error);
+        // console.error(initSheet.error);
         return Alert.alert(initSheet.error.message);
       }
       const presentSheet = await stripe.presentPaymentSheet({
         clientSecret: data.clientSecret,
       });
       if (presentSheet.error) {
-        console.error(presentSheet.error);
+        // console.error(presentSheet.error);
         return Alert.alert(presentSheet.error.message);
       }
       Alert.alert("Payment successfully! Thank you for the purchase.");
       setTotalCoins(totalCoins + parseInt(quantity));
     } catch (err) {
-      console.error(err);
+      // console.error(err);
       Alert.alert("Payment failed!");
     }
   };
