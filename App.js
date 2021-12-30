@@ -1,6 +1,6 @@
 import * as React from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { StripeProvider } from "@stripe/stripe-react-native";
 import Checkout from "./components/Checkout";
 
@@ -18,8 +18,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: "#fafafa",
+    // alignItems: "center",
+    // justifyContent: "center",
   },
 });
