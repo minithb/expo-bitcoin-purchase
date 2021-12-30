@@ -18,6 +18,7 @@ export default function Checkout() {
   const [amount, setAmount] = useState(quantity * price);
   const stripe = useStripe();
 
+  // Update price +/- 1.5% every 5 seconds
   useEffect(() => {
     setTimeout(() => {
       let newPrice;
@@ -31,6 +32,7 @@ export default function Checkout() {
     }, 5000);
   }, [price]);
 
+  // Update total (INR) on change in price or quantity
   useEffect(() => {
     setAmount(price * quantity);
   }, [quantity, price]);
@@ -73,7 +75,9 @@ export default function Checkout() {
         return Alert.alert(presentSheet.error.message);
       }
       Alert.alert("Payment successfully! Thank you for the purchase.");
+      // Update Bitcoin balance & total value
       setTotalCoins(totalCoins + parseInt(quantity));
+      // Reset quantity
       setQuantity(1);
     } catch (err) {
       // console.error(err);
@@ -91,6 +95,7 @@ export default function Checkout() {
         <Text style={{ paddingTop: 30 }}>Equity Value(BTC)</Text>
         <View style={styles.value}>
           <Text style={styles.totalCoins}>{totalCoins}</Text>
+          {/* Total value of wallet */}
           <Text style={styles.totalValue}>
             {" "}
             ≈
@@ -131,6 +136,7 @@ export default function Checkout() {
           BTC/INR
         </Text>
         <Text style={[styles.totalCoins, { textAlign: "center" }]}>
+          {/* Price */}
           <NumberFormat
             displayType="text"
             thousandSeparator={true}
@@ -147,12 +153,14 @@ export default function Checkout() {
           <Text style={styles.amount}>Total (INR)</Text>
         </View>
         <View style={[styles.value, { marginTop: 5 }]}>
+          {/* BTC amount input */}
           <TextInput
             placeholder="1"
             style={styles.textInput}
             value={quantity}
             onChangeText={(e) => setQuantity(e)}
           />
+          {/* Total (INR) */}
           <Text style={[styles.amount, { fontSize: 16 }]}>
             <NumberFormat
               displayType="text"
