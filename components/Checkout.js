@@ -38,17 +38,20 @@ export default function Checkout() {
   const buy = async () => {
     try {
       const finalAmount = parseInt(amount);
-      const response = await fetch("http://localhost:6000/buy", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          coin: "Bitcoin",
-          quantity: quantity,
-          amount: finalAmount,
-        }),
-      });
+      const response = await fetch(
+        "https://expo-bitcoin-purchase.herokuapp.com/buy",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            coin: "Bitcoin",
+            quantity: quantity,
+            amount: finalAmount,
+          }),
+        }
+      );
 
       const data = await response.json();
       if (!response.ok) {
