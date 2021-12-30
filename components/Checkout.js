@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
-  Button,
   TextInput,
   Alert,
   StyleSheet,
@@ -84,7 +83,7 @@ export default function Checkout() {
   return (
     <>
       {/* Wallet View */}
-      <View style={{ padding: 20, flex: 1 }}>
+      <View style={styles.container}>
         <Text style={[styles.title, { paddingTop: 20 }]}>
           <Ionicons name="wallet-outline" size={24} color="#333" /> Wallet
         </Text>
@@ -106,53 +105,26 @@ export default function Checkout() {
         </View>
         <View style={[styles.value, { marginTop: 30 }]}>
           <Text style={{ marginTop: 5, flex: 4, paddingLeft: 25 }}>Coin</Text>
-          <Text
-            style={{
-              marginTop: 5,
-              flex: 1,
-              textAlign: "left",
-              marginRight: 15,
-            }}
-          >
-            Balance
-          </Text>
+          <Text style={styles.balance}>Balance</Text>
         </View>
 
         {/* Bitcoin row */}
         <View style={styles.value}>
           <MaterialCommunityIcons name="bitcoin" size={28} color="#f2a900" />
-          <Text style={{ marginTop: 5, flex: 2, fontSize: 16 }}> Bitcoin</Text>
-          <Text
-            style={{
-              marginTop: 5,
-              flex: 1,
-              textAlign: "center",
-              fontSize: 16,
-            }}
-          >
-            {totalCoins}
-          </Text>
+          <Text style={styles.coin}> Bitcoin</Text>
+          <Text style={styles.coinBalance}>{totalCoins}</Text>
         </View>
 
         {/* Ethereum row */}
         <View style={styles.value}>
           <MaterialCommunityIcons name="ethereum" size={28} color="#3c3c3d" />
-          <Text style={{ marginTop: 5, flex: 2, fontSize: 16 }}> Ethereum</Text>
-          <Text
-            style={{
-              marginTop: 5,
-              flex: 1,
-              textAlign: "center",
-              fontSize: 16,
-            }}
-          >
-            0.00
-          </Text>
+          <Text style={styles.coin}> Ethereum</Text>
+          <Text style={styles.coinBalance}>0.00</Text>
         </View>
       </View>
 
       {/* Buy View */}
-      <View style={{ padding: 20, flex: 1 }}>
+      <View style={styles.container}>
         <Text style={styles.title}>
           <Ionicons name="swap-horizontal-outline" size={24} color="#333" />{" "}
           BTC/INR
@@ -171,40 +143,16 @@ export default function Checkout() {
           <Text style={{ marginTop: 5, flex: 1, paddingLeft: 25 }}>
             Quantity
           </Text>
-          <Text
-            style={{
-              marginTop: 5,
-              flex: 4,
-              textAlign: "right",
-              marginRight: 15,
-            }}
-          >
-            Amount
-          </Text>
+          <Text style={styles.amount}>Amount</Text>
         </View>
         <View style={[styles.value, { marginTop: 5 }]}>
           <TextInput
             placeholder="1"
-            style={{
-              marginLeft: 18,
-              padding: 10,
-              borderColor: "black",
-              borderWidth: 0.5,
-              // width: 70,
-              flex: 1,
-            }}
+            style={styles.textInput}
             value={quantity}
             onChangeText={(e) => setQuantity(e)}
           />
-          <Text
-            style={{
-              marginTop: 5,
-              flex: 4,
-              textAlign: "right",
-              marginRight: 15,
-              fontSize: 16,
-            }}
-          >
+          <Text style={[styles.amount, { fontSize: 16 }]}>
             <NumberFormat
               displayType="text"
               thousandSeparator={true}
@@ -220,7 +168,7 @@ export default function Checkout() {
         <TouchableOpacity
           key="Buy"
           onPress={buy}
-          style={[styles.button, { marginTop: 70 }]}
+          style={styles.button}
           disabled={quantity <= 0}
         >
           <Text style={styles.buttonLabel}>Buy BTC</Text>
@@ -232,14 +180,8 @@ export default function Checkout() {
 
 const styles = StyleSheet.create({
   container: {
+    padding: 20,
     flex: 1,
-    marginTop: 8,
-    backgroundColor: "aliceblue",
-    minHeight: 200,
-  },
-  row: {
-    flexDirection: "row",
-    flexWrap: "wrap",
   },
   button: {
     paddingHorizontal: 8,
@@ -249,6 +191,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     marginHorizontal: "1%",
     marginBottom: 6,
+    marginTop: 70,
     minWidth: "48%",
     textAlign: "center",
     borderWidth: 0,
@@ -273,5 +216,37 @@ const styles = StyleSheet.create({
     padding: 5,
     marginTop: 5,
   },
-  value: { flexDirection: "row" },
+  value: {
+    flexDirection: "row",
+  },
+  coin: {
+    marginTop: 5,
+    flex: 2,
+    fontSize: 16,
+  },
+  coinBalance: {
+    marginTop: 5,
+    flex: 1,
+    textAlign: "center",
+    fontSize: 16,
+  },
+  amount: {
+    marginTop: 5,
+    flex: 4,
+    textAlign: "right",
+    marginRight: 15,
+  },
+  textInput: {
+    marginLeft: 18,
+    padding: 10,
+    borderColor: "black",
+    borderWidth: 0.5,
+    flex: 1,
+  },
+  balance: {
+    marginTop: 5,
+    flex: 1,
+    textAlign: "left",
+    marginRight: 15,
+  },
 });
