@@ -13,8 +13,7 @@ Welcome! I hope this app helps you learn about In-App Purchases using Stripe & E
 1. [Demo](#demo)
 2. [Installation](#installation)
 3. [Technology Stack](#technology-stack)
-4. [Authors](#authors)
-5. [License](#license)
+4. [License](#license)
 
 # Demo
 
