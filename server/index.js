@@ -16,7 +16,7 @@ app.post("/buy", async (req, res) => {
     let { coin, quantity, amount } = req.body;
     // Simple validation
     if (!coin || !quantity || !amount)
-      return res.status(400).json({ message: "Missing data" });
+      return res.status(400).json({ message: "Invalid data" });
     amount = parseInt(amount);
 
     // Initiate payment
@@ -66,7 +66,7 @@ app.post("/stripe", async (req, res) => {
     // fulfilment
     console.log(`${event.data.object.metadata.coin} payment succeeded!`);
   }
-  res.json({ ok: true, ...req.body });
+  res.json({ ok: true });
 });
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
