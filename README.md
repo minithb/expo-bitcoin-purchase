@@ -38,6 +38,7 @@ _Tip: Keep pressing 4 & 2 on payment screen._
 
 **Client**:
 
+- Navigate to client folder - `cd client`
 - Install [expo-cli](https://www.npmjs.com/package/expo-cli)
 - Install [Android studio emulator](https://docs.expo.dev/workflow/android-studio-emulator/) & [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
 - Use the `yarn` or `npm install` command to install dependencies
