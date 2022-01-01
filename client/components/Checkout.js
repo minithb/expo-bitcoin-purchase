@@ -43,7 +43,7 @@ export default function Checkout() {
   const buy = async () => {
     try {
       const finalAmount = parseInt(amount);
-      const response = await fetch(`${SERVER_URL_METRO}/buy`, {
+      const response = await fetch(`${SERVER_URL_HEROKU}/buy`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
