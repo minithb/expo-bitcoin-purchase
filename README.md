@@ -13,7 +13,8 @@ Welcome! I hope this app helps you learn about In-App Purchases using Stripe & E
 1. [Demo](#demo)
 2. [Installation](#installation)
 3. [Technology Stack](#technology-stack)
-4. [License](#license)
+4. [Notes](#notes)
+5. [License](#license)
 
 # Demo
 
@@ -38,10 +39,10 @@ _Tip: Keep pressing 4 & 2 on payment screen._
 **Client**:
 
 - Install [expo-cli](https://www.npmjs.com/package/expo-cli)
-- Install [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/) & [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
+- Install [Android studio emulator](https://docs.expo.dev/workflow/android-studio-emulator/) & [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
 - Use the `yarn` or `npm install` command to install dependencies
 - Once the dependencies are finished installing, use the `expo start` command inside the root directory to start the project
-- Press `a` to run the app on Android emulator or `i` to run the app on iOS simulator
+- Press `a` to run the app on Android Studio emulator or `i` to run the app on iOS simulator
 
 _Note: If you're using MacBook with M1(Apple Silicon) chip, while installing Android Studio emulator, in AVD manager, while creating new virtual device, select `Pixel XL` device, and select `R` system image._
 
@@ -72,6 +73,14 @@ I tried to use a completely modern tech stack while testing out some new technol
 - [cors](https://github.com/expressjs/cors)
 - [express](https://github.com/expressjs/express)
 - [stripe](https://github.com/stripe/stripe-node)
+
+# Notes
+
+The overall experience of developing app with Expo was amazing. Never thought developing an app with payment integration would be this easy, only possible with Expo. There are some points which I want to highlight -
+
+- Being a beginner, I think [this](https://github.com/stripe/stripe-react-native#recommended-usage) paragraph from [stripe-react-native](https://github.com/stripe/stripe-react-native) SDK is a must include one in [Expo Stripe](https://docs.expo.dev/versions/latest/sdk/stripe/) documentation.
+- On [Android Studio emulator](https://docs.expo.dev/workflow/android-studio-emulator/) page, instructions to connect local server to client should be there, as localhost URL doesn't work on android, we need to use Metro URL.
+- Instructions/Support for Apple M1(Apple Silicon) chip in documentation, wherever necessary.
 
 # License
 
