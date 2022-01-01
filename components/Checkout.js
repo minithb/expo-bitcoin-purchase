@@ -17,6 +17,9 @@ export default function Checkout() {
   const [quantity, setQuantity] = useState("1");
   const [amount, setAmount] = useState(quantity * price);
   const stripe = useStripe();
+  const SERVER_URL_HEROKU = "https://expo-bitcoin-purchase.herokuapp.com";
+  const SERVER_URL_LOCAL = "http://127.0.0.1:6000";
+  const SERVER_URL_METRO = "http://192.168.1.108:6000";
 
   // Update price +/- 1.5% every 5 seconds
   useEffect(() => {
@@ -40,20 +43,17 @@ export default function Checkout() {
   const buy = async () => {
     try {
       const finalAmount = parseInt(amount);
-      const response = await fetch(
-        "https://expo-bitcoin-purchase.herokuapp.com/buy",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            coin: "Bitcoin",
-            quantity: quantity,
-            amount: finalAmount,
-          }),
-        }
-      );
+      const response = await fetch(`${SERVER_URL_METRO}/buy`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          coin: "Bitcoin",
+          quantity: quantity,
+          amount: finalAmount,
+        }),
+      });
 
       const data = await response.json();
       if (!response.ok) {
@@ -78,7 +78,7 @@ export default function Checkout() {
       // Update Bitcoin balance & total value
       setTotalCoins(totalCoins + parseInt(quantity));
       // Reset quantity
-      setQuantity(1);
+      setQuantity("1");
     } catch (err) {
       // console.error(err);
       Alert.alert("Payment failed!");
@@ -155,6 +155,7 @@ export default function Checkout() {
         <View style={[styles.value, { marginTop: 5 }]}>
           {/* BTC amount input */}
           <TextInput
+            keyboardType="number-pad"
             placeholder="1"
             style={styles.textInput}
             value={quantity}
