@@ -2,11 +2,13 @@
 
 # expo-bitcoin-purchase
 
-An app built using Expo for android & iOS to demonstrate dummy bitcoin purchase using Stripe react-native SDK.
+![AppScreenshot-iOS](client/assets/AppScreenshot.jpg)
+
+An app built using Expo for android & iOS to demonstrate dummy bitcoin purchase using Stripe React Native SDK.
 
 Building this app gave me the opportunity to really stretch out and craft my first app.
 
-Welcome! I hope this app helps you learn about In-App Purchases using Stripe & Expo.
+Welcome! I hope this app helps you learn about In-App Purchase using Stripe & Expo.
 
 # Table of Content
 
@@ -57,6 +59,10 @@ _Note: If you're using MacBook with M1(Apple Silicon) chip, while installing And
 To test Stripe webhooks on local environment, check out [this](https://dashboard.stripe.com/test/webhooks/create?endpoint_location=local) guide. You can also use [Stripe VS Code extension](https://stripe.com/blog/stripe-extension-for-vs-code).
 
 _Note: If you're using MacBook with M1(Apple Silicon) chip, the Stripe VS Code extension may not detect the `stripe-cli` installed on your machine, if it asks for path to executable, use this path - `/usr/local/bin/stripe`_
+
+**Publish or share the app**:
+
+If you want to publish the app, run the `expo login` command to login. Then, run the `expo publish` command. Read more [here](https://docs.expo.dev/introduction/walkthrough/#publish-and-share-your-app).
 
 # Technology Stack
 
