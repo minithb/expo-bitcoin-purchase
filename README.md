@@ -2,13 +2,15 @@
 
 # expo-bitcoin-purchase
 
-![AppScreenshot-iOS](client/assets/AppScreenshot-iOS.jpg)
+![AppScreenshot-iOS](client/assets/AppScreenshot-iOS.png)
 
 An app built using Expo for android & iOS to demonstrate dummy bitcoin purchase using Stripe React Native SDK.
 
 Building this app gave me the opportunity to really stretch out and craft my first app.
 
 Welcome! I hope this app helps you learn about In-App Purchase using Stripe & Expo.
+
+To get started, you can watch [this](https://www.youtube.com/watch?v=3yFMfFM53VA) video tutorial.
 
 # Table of Content
 
