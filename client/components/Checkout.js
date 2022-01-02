@@ -117,14 +117,14 @@ export default function Checkout() {
         {/* Bitcoin row */}
         <View style={styles.value}>
           <MaterialCommunityIcons name="bitcoin" size={28} color="#f2a900" />
-          <Text style={styles.coin}> Bitcoin</Text>
+          <Text style={styles.coin}> Bitcoin(BTC)</Text>
           <Text style={styles.coinBalance}>{totalCoins}</Text>
         </View>
 
         {/* Ethereum row */}
         <View style={styles.value}>
           <MaterialCommunityIcons name="ethereum" size={28} color="#3c3c3d" />
-          <Text style={styles.coin}> Ethereum</Text>
+          <Text style={styles.coin}> Ethereum(ETH)</Text>
           <Text style={styles.coinBalance}>0.00</Text>
         </View>
       </View>
